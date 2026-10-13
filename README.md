@@ -20,11 +20,19 @@ matrix, tune them with cross-validation, and recommend the best model.
 
 | | |
 |---|---|
-| Chosen dataset | _TBD — see [docs/step1-dataset-choice.md](docs/step1-dataset-choice.md)_ |
-| Target (class) variable | _TBD_ |
-| Number of classes / balance | _TBD_ |
+| Chosen dataset | `CarData` (`ALL_CARS_DATA.csv`) — see [docs/step1-dataset-choice.md](docs/step1-dataset-choice.md) |
+| Target (class) variable | `PRICE RANGE` — a car's price tier compared with other cars of the same type |
+| Number of classes / balance | 4 (Low, Medium, High, Luxury), balanced at 24–27% each |
 
 Candidates: `perfumes`, `NetworkEvent`, `musicdata`, `CarData`.
+
+## How to run
+
+1. Put the Canvas datasets in `data/`, one folder each (`data/CarData/ALL_CARS_DATA.csv` is the one used).
+2. Open `notebooks/lab2_classification.ipynb`, select the `.venv` kernel, and **Run All**.
+3. A full run takes about 5–7 minutes (cross-validation and the random-forest grid search). Lower `SAMPLE_SIZE` in the setup cell while experimenting.
+
+Cleaning lives in `src/data.py`, dataset comparison helpers in `src/overview.py`. The report outline with all results is in `reports/report-outline.md`.
 
 ## Setup
 
@@ -55,13 +63,13 @@ nbstripout --install
 ## Plan
 
 - [x] **Step 0 — Setup:** repo, virtual environment, dependencies
-- [ ] **Step 1 — Choose dataset:** compare all four, pick one, define the class target and count the classes
-- [ ] **Step 2 — Explore:** structure, missing values, duplicates, unusual values, **class imbalance**, differences between classes, observations
-- [ ] **Step 3 — Prepare & split:** clean, define X / y, **stratified** 80/20 train-test split, preprocessing pipeline
-- [ ] **Step 4 — Models:** baseline + at least two classifiers, compared with 5-fold CV on the training set
-- [ ] **Step 5 — Evaluate:** accuracy, precision, recall, F1 and a confusion matrix per model on the same test set (ROC-AUC if binary)
-- [ ] **Step 6 — Tune:** GridSearchCV with 5-fold CV, before/after comparison
-- [ ] **Step 7 — Interpret:** which classes are easy/hard, strengths/weaknesses, recommendation
+- [x] **Step 1 — Choose dataset:** compare all four, pick one, define the class target and count the classes
+- [x] **Step 2 — Explore:** structure, missing values, duplicates, unusual values, **class imbalance**, differences between classes, observations
+- [x] **Step 3 — Prepare & split:** clean, define X / y, **stratified** 80/20 train-test split, preprocessing pipeline
+- [x] **Step 4 — Models:** baseline + at least two classifiers, compared with 5-fold CV on the training set
+- [x] **Step 5 — Evaluate:** accuracy, precision, recall, F1 and a confusion matrix per model on the same test set (ROC-AUC if binary)
+- [x] **Step 6 — Tune:** GridSearchCV with 5-fold CV, before/after comparison
+- [x] **Step 7 — Interpret:** which classes are easy/hard, strengths/weaknesses, recommendation
 - [ ] **Report:** PDF answering the three required questions
 - [ ] **Submit** notebook + PDF on Canvas
 
