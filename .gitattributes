@@ -1,3 +1,5 @@
 *.ipynb filter=nbstripout
 *.zpln filter=nbstripout
 *.ipynb diff=ipynb
+# The executed submission copy keeps its outputs
+submission/*.ipynb !filter
